@@ -6,9 +6,11 @@ position=0
 DontPlay=0
 Ladder=1
 snake=2
+declare -A diePosition
 #Winning condition
 while(($position!=100))
 do
+	diecount=$((diecount+1))
 	playerRollsDie=$((RANDOM%6+1))
 	checkOption=$((RANDOM%3))
 	case $checkOption in
@@ -40,4 +42,7 @@ do
 			printf "\n"
 			;;
 	esac
+	#count the  die and position
+	diePosition[$diecount]=$position
+	echo "Die count $diecount: Position $position"
 done
